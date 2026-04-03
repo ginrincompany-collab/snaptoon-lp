@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SnapToon - 面白ければ、バズる。</title>
+  <meta name="description" content="フォロワー数は関係ない。SnapToonなら最低500人にあなたの漫画が届く。">
+
+  <!-- GA4: ここに測定IDを入れる (例: G-XXXXXXXXXX) -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: #FFFFFF;
+      color: #111111;
+      max-width: 430px;
+      margin: 0 auto;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── CTA Button ── */
+    .cta-btn {
+      display: block;
+      width: 100%;
+      max-width: 340px;
+      margin: 0 auto;
+      padding: 18px 32px;
+      background: #FF6B2B;
+      color: #FFFFFF;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      letter-spacing: 0.02em;
+    }
+
+    .cta-btn:active {
+      transform: scale(0.97);
+    }
+
+    .cta-btn:hover {
+      box-shadow: 0 8px 32px rgba(255, 107, 43, 0.35);
+    }
+
+    /* ── Sections ── */
+    section {
+      padding: 60px 24px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 36px;
+      line-height: 1.6;
+      color: #111111;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 48px 24px 60px;
+      text-align: center;
+    }
+
+    .hero-logo {
+      font-size: 28px;
+      font-weight: 900;
+      color: #FF6B2B;
+      letter-spacing: 0.06em;
+      margin-bottom: 44px;
+    }
+
+    .hero-catch {
+      font-size: 52px;
+      font-weight: 900;
+      font-style: italic;
+      line-height: 1.35;
+      margin-bottom: 40px;
+      color: #111111;
+    }
+
+    .hero-catch .underline {
+      position: relative;
+      display: inline;
+    }
+
+    .hero-catch .underline::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 4px;
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 107, 43, 0.3);
+      border-radius: 4px;
+      z-index: -1;
+    }
+
+    /* ── Proof (実績カード) ── */
+    .proof {
+      text-align: center;
+      background: #FAFAFA;
+    }
+
+    .proof-cards {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .proof-card {
+      flex: 1;
+      background: #FFFFFF;
+      border: 1.5px solid rgba(255, 107, 43, 0.25);
+      border-radius: 16px;
+      padding: 24px 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .proof-card .value {
+      font-size: 2rem;
+      font-weight: 900;
+      color: #FF6B2B;
+      line-height: 1;
+      display: block;
+    }
+
+    .proof-card .label {
+      font-size: 0.72rem;
+      color: #666666;
+      margin-top: 8px;
+      display: block;
+    }
+
+    .proof-note {
+      font-size: 0.82rem;
+      color: #666666;
+      margin-bottom: 32px;
+    }
+
+    .proof-img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      margin-bottom: 16px;
+    }
+
+    /* ── Steps (仕組み) ── */
+    .steps {
+      text-align: center;
+    }
+
+    .steps-list {
+      text-align: left;
+    }
+
+    .step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .step-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: #FF6B2B;
+      color: #FFFFFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 900;
+    }
+
+    .step-body {
+      flex: 1;
+      padding-top: 2px;
+    }
+
+    .step-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #111111;
+      margin-bottom: 4px;
+    }
+
+    .step-desc {
+      font-size: 0.85rem;
+      color: #666666;
+      line-height: 1.65;
+    }
+
+    .step-arrow {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #FF6B2B;
+      padding: 12px 0;
+      font-weight: 700;
+    }
+
+    /* ── Philosophy (訴求コピー) ── */
+    .philosophy {
+      text-align: center;
+      padding: 64px 24px;
+    }
+
+    .philosophy-main {
+      font-size: 1.5rem;
+      font-weight: 900;
+      line-height: 1.6;
+      margin-bottom: 16px;
+      color: #111111;
+    }
+
+    .philosophy-main::after {
+      content: '';
+      display: block;
+      width: 48px;
+      height: 4px;
+      background: #FF6B2B;
+      border-radius: 2px;
+      margin: 20px auto 0;
+    }
+
+    .philosophy-sub {
+      font-size: 0.92rem;
+      color: #666666;
+      line-height: 1.7;
+      margin-top: 20px;
+    }
+
+    /* ── Compare (比較表) ── */
+    .compare {
+      background: #FAFAFA;
+    }
+
+    .compare-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 0 -24px;
+      padding: 0 24px 8px;
+    }
+
+    .compare-table {
+      min-width: 420px;
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      font-size: 0.8rem;
+      background: #FFFFFF;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .compare-table thead th {
+      padding: 14px 10px;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.02em;
+      text-align: center;
+    }
+
+    .compare-table thead th:first-child {
+      background: #FFFFFF;
+      color: #999;
+      text-align: left;
+      width: 22%;
+    }
+
+    .compare-table thead th:nth-child(2),
+    .compare-table thead th:nth-child(3) {
+      background: #FFFFFF;
+      color: #999;
+    }
+
+    .compare-table thead th:nth-child(4) {
+      background: rgba(255, 107, 43, 0.08);
+      color: #FF6B2B;
+      font-weight: 900;
+    }
+
+    .compare-table tbody td {
+      padding: 13px 10px;
+      border-top: 1px solid #F0F0F0;
+      vertical-align: middle;
+      color: #111111;
+      text-align: center;
+    }
+
+    .compare-table tbody td:first-child {
+      font-weight: 700;
+      font-size: 0.76rem;
+      color: #666666;
+      text-align: left;
+    }
+
+    .compare-table tbody td:nth-child(2),
+    .compare-table tbody td:nth-child(3) {
+      color: #999;
+    }
+
+    .compare-table tbody td:nth-child(4) {
+      color: #111111;
+      font-weight: 700;
+      background: rgba(255, 107, 43, 0.04);
+    }
+
+    .check {
+      color: #FF6B2B;
+      font-weight: 700;
+    }
+
+    .compare-note {
+      font-size: 0.7rem;
+      color: #999;
+      text-align: center;
+      margin-top: 16px;
+    }
+
+    /* ── Post Flow (投稿フロー) ── */
+    .post-flow {
+      background: #FFFFFF;
+    }
+
+    .flow-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .flow-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: #FFFFFF;
+      border: 1px solid #F0F0F0;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .flow-card-icon {
+      font-size: 1.6rem;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .flow-card-text {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #111111;
+      line-height: 1.6;
+    }
+
+    /* Accordion */
+    .accordion {
+      border: 1.5px solid #FF6B2B;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .accordion-toggle {
+      width: 100%;
+      background: #FFFFFF;
+      border: none;
+      padding: 16px 20px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #FF6B2B;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+    }
+
+    .accordion-toggle .arrow {
+      transition: transform 0.3s ease;
+      font-size: 0.8rem;
+    }
+
+    .accordion-toggle.open .arrow {
+      transform: rotate(180deg);
+    }
+
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .accordion-inner {
+      padding: 0 20px 24px;
+      border-top: 1px solid rgba(255, 107, 43, 0.15);
+    }
+
+    .spec-group {
+      margin-top: 20px;
+    }
+
+    .spec-group-title {
+      font-size: 0.82rem;
+      font-weight: 900;
+      color: #111111;
+      margin-bottom: 10px;
+    }
+
+    .spec-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .spec-list li {
+      font-size: 0.8rem;
+      color: #666666;
+      line-height: 1.7;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .spec-list li::before {
+      content: '・';
+      position: absolute;
+      left: 0;
+      color: #FF6B2B;
+    }
+
+    /* ── Final CTA ── */
+    .final-cta {
+      text-align: center;
+      padding: 60px 24px 48px;
+    }
+
+    .final-cta .section-title {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .final-cta-sub {
+      font-size: 0.88rem;
+      color: #666666;
+      margin-bottom: 32px;
+    }
+
+    .final-cta .cta-btn {
+      margin-bottom: 14px;
+    }
+
+    .final-cta-note {
+      font-size: 0.75rem;
+      color: #999;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid #F0F0F0;
+    }
+
+    footer p {
+      font-size: 0.72rem;
+      color: #999;
+    }
+
+    /* ── Scroll fade-in ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <div class="hero-logo">SnapToon</div>
+    <h1 class="hero-catch">
+      面白ければ、<br><span class="underline">バズる。</span>
+    </h1>
+    <a href="https://snaptoon.bolt.host" class="cta-btn" onclick="gtag('event','cta_click')">無料で投稿をはじめる &rarr;</a>
+  </section>
+
+  <!-- ── 実績カード ── -->
+  <section class="proof">
+    <h2 class="section-title fade-in">フォロワー151人の<br>クリエイターの実績</h2>
+    <div class="proof-cards fade-in">
+      <div class="proof-card">
+        <span class="value">22,560</span>
+        <span class="label">PV獲得</span>
+      </div>
+      <div class="proof-card">
+        <span class="value">1位</span>
+        <span class="label">ランキング</span>
+      </div>
+    </div>
+    <p class="proof-note fade-in">全くの無名クリエイターが1投稿でランキング1位を獲得</p>
+    <img src="./screenshot_ranking.jpg" alt="ランキング1位のスクリーンショット" width="100%" style="border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" class="fade-in" onerror="this.style.display='none'">
+    <img src="./screenshot_app.PNG" alt="SnapToonアプリ画面" width="100%" style="border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin-top: 16px;" class="fade-in" onerror="this.style.display='none'">
+  </section>
+
+  <!-- ── 仕組み（3ステップ） ── -->
+  <section class="steps">
+    <h2 class="section-title fade-in">なぜフォロワーが少なくても<br>バズれるのか</h2>
+    <div class="steps-list fade-in">
+      <div class="step">
+        <div class="step-icon">1</div>
+        <div class="step-body">
+          <div class="step-title">投稿する</div>
+          <div class="step-desc">フォロワー数に関係なく、最低500PVが保証されます</div>
+        </div>
+      </div>
+      <div class="step-arrow">&darr;</div>
+      <div class="step">
+        <div class="step-icon">2</div>
+        <div class="step-body">
+          <div class="step-title">評価が良ければ</div>
+          <div class="step-desc">1,000PV〜5,000PVへ拡散</div>
+        </div>
+      </div>
+      <div class="step-arrow">&darr;</div>
+      <div class="step">
+        <div class="step-icon">3</div>
+        <div class="step-body">
+          <div class="step-title">さらに高評価なら</div>
+          <div class="step-desc">バイラル拡散。100万PVも夢じゃない</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 訴求コピー ── -->
+  <section class="philosophy">
+    <p class="philosophy-main fade-in">何が面白いかは、<br>ユーザーが決める。</p>
+    <p class="philosophy-sub fade-in">大人が面白いを決める世界とは、おさらば。</p>
+  </section>
+
+  <!-- ── 比較表 ── -->
+  <section class="compare">
+    <h2 class="section-title fade-in">他のプラットフォームと<br>比べてみました</h2>
+    <div class="compare-scroll fade-in">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>X</th>
+            <th>Pixiv</th>
+            <th>SnapToon</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>フォロワー0<br>での露出</td>
+            <td>ほぼなし</td>
+            <td>ほぼなし</td>
+            <td>最低500PV保証 <span class="check">&#10003;</span></td>
+          </tr>
+          <tr>
+            <td>収益化</td>
+            <td>条件が厳しい</td>
+            <td>限定的</td>
+            <td>広告収益＋投げ銭 <span class="check">&#10003;</span></td>
+          </tr>
+          <tr>
+            <td>ライセンス</td>
+            <td>自分のもの</td>
+            <td>自分のもの</td>
+            <td>自分のもの <span class="check">&#10003;</span></td>
+          </tr>
+          <tr>
+            <td>AI作品</td>
+            <td>投稿可</td>
+            <td>条件あり</td>
+            <td>投稿可 <span class="check">&#10003;</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="compare-note fade-in">※各プラットフォームの一般的な傾向をもとに作成しています</p>
+  </section>
+
+  <!-- ── 投稿フロー ── -->
+  <section class="post-flow">
+    <h2 class="section-title fade-in">投稿は、30秒で完結。</h2>
+    <div class="flow-cards fade-in">
+      <div class="flow-card">
+        <div class="flow-card-icon">&#9999;&#65039;</div>
+        <div class="flow-card-text">えんぴつアイコンをタップして投稿するものを選ぶだけ</div>
+      </div>
+      <div class="flow-card">
+        <div class="flow-card-icon">&#128241;</div>
+        <div class="flow-card-text">PC・スマホ、どちらからでも投稿できます</div>
+      </div>
+    </div>
+    <div class="accordion fade-in">
+      <button class="accordion-toggle" onclick="toggleAccordion(this)">
+        投稿規定を確認する
+        <span class="arrow">&#9660;</span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-inner">
+          <div class="spec-group">
+            <div class="spec-group-title">対応形式</div>
+            <ul class="spec-list">
+              <li>画像形式：JPEG・PNG</li>
+              <li>推奨幅：800px</li>
+              <li>最大幅：1,600px</li>
+              <li>最大高さ：1枚あたり10,000px</li>
+              <li>1話あたりの最大枚数：100枚</li>
+              <li>1話あたりの最大合計容量：200MB</li>
+            </ul>
+          </div>
+          <div class="spec-group">
+            <div class="spec-group-title">推奨事項</div>
+            <ul class="spec-list">
+              <li>重要なコンテンツを右端から約10%以内に置かないことを推奨（UI上のボタンと重なる可能性があります）</li>
+              <li>大きいサイズで制作し、書き出し時に800pxに縮小することを推奨</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 最終CTA ── -->
+  <section class="final-cta">
+    <h2 class="section-title fade-in">あなたの作品を、<br>ちゃんと届けたい。</h2>
+    <p class="final-cta-sub fade-in">30秒で完了</p>
+    <a href="https://snaptoon.bolt.host" class="cta-btn fade-in" onclick="gtag('event','cta_click')">今すぐ無料で投稿する &rarr;</a>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <p>&copy; 2026 SnapToon</p>
+  </footer>
+
+  <!-- Scroll fade-in & GA4 fallback -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var els = document.querySelectorAll('.fade-in');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('visible'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      els.forEach(function (el) { observer.observe(el); });
+    });
+
+    function toggleAccordion(btn) {
+      var body = btn.nextElementSibling;
+      btn.classList.toggle('open');
+      if (btn.classList.contains('open')) {
+        body.style.maxHeight = body.scrollHeight + 'px';
+      } else {
+        body.style.maxHeight = '0';
+      }
+    }
+
+    if (typeof gtag !== 'function') {
+      function gtag() {}
+    }
+  </script>
+
+</body>
+</html>
